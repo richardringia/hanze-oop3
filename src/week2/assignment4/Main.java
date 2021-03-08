@@ -13,10 +13,22 @@ public class Main {
 
             switch (r1) {
                 // your code
+                case 1:
+                    factory = new SedanFactory();
+                case 2:
+                    factory = new PickUpFactory();
+                case 3:
+                    factory = new StationWagonFactory();
+                case 4:
+                    factory = new SUVFactory();
             }
         
             // your code
-            System.out.println("Type of car is " + car + " with price " + car.getCost());
+            Car car = null;
+            if (factory != null) {
+                car = factory.makeCar();
+                System.out.println("Type of car is " + car + " with price " + car.getCost());
+            }
         }
     }
 }
