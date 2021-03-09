@@ -2,26 +2,14 @@ package week3.assignment4;
 
 import java.util.Iterator;
 import java.util.ArrayList;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class MyStack implements Iterable<String> {
 
-    private ArrayList<String> list = new ArrayList<>();
+    public ArrayList<String> list = new ArrayList<>();
 
     @Override
     public Iterator<String> iterator() {
-        return new StackIterator(this.list);
-    }
-
-    @Override
-    public void forEach(Consumer<? super String> action) {
-
-    }
-
-    @Override
-    public Spliterator<String> spliterator() {
-        return null;
+        return new StackIterator(this);
     }
 
     // your code
@@ -29,8 +17,8 @@ public class MyStack implements Iterable<String> {
         list.add(item);
     }
 
-    public void pop() {
-        list.remove(0);
+    public String pop() {
+        return list.remove(list.size() - 1);
     }
 
     public boolean isEmpty() {
